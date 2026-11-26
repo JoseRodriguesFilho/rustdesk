@@ -1,29 +1,10 @@
 #!/usr/bin/env python3
 
-# --- PMFR-PATCH: servidor próprio embutido no cliente ---------------------
-def _pmfr_patch():
-    import os, re, pathlib
-    root = pathlib.Path(__file__).resolve().parent
-    os.environ["API_SERVER"] = "http://192.168.253.103:21114"
-    cfg = root / "libs" / "hbb_common" / "src" / "config.rs"
-    t = cfg.read_text(encoding="utf-8")
-    n = re.sub(r'pub const RENDEZVOUS_SERVERS: &\[&str\] = &\[[^\]]*\];',
-               'pub const RENDEZVOUS_SERVERS: &[&str] = &["192.168.253.103"];', t)
-    n = re.sub(r'pub const RS_PUB_KEY: &str = "[^"]*";',
-               'pub const RS_PUB_KEY: &str = "Thp8okCj4ZfMN8jpgOfLhOgi7CyXqo3GFZJlhzYOhsI=";', n)
-    if '"192.168.253.103"' not in n or '"Thp8okCj4ZfMN8jpgOfLhOgi7CyXqo3GFZJlhzYOhsI="' not in n:
-        raise SystemExit("PMFR-PATCH: não consegui alterar " + str(cfg))
-    cfg.write_text(n, encoding="utf-8")
-    common = root / "src" / "common.rs"
-    s = common.read_text(encoding="utf-8")
-    if '"https://admin.rustdesk.com".to_owned()' in s:
-        common.write_text(s.replace('"https://admin.rustdesk.com".to_owned()', '"http://192.168.253.103:21114".to_owned()', 1), encoding="utf-8")
-        print("PMFR-PATCH: API padrão ->", "http://192.168.253.103:21114")
-    else:
-        print("PMFR-PATCH: AVISO - padrão do API não encontrado em src/common.rs (usa API_SERVER do ambiente)")
-    print("PMFR-PATCH: ID server ->", "192.168.253.103")
-_pmfr_patch()
-# --------------------------------------------------------------------------
+# >>> PMFR-PATCH
+import pmfr_patch
+pmfr_patch.run()
+# <<< PMFR-PATCH
+
 
 import os
 import glob

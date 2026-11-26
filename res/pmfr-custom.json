@@ -1,0 +1,26 @@
+{
+  "override-settings": {
+    "theme": "dark",
+    "lang": "pt-br",
+    "approve-mode": "password",
+    "verification-method": "use-permanent-password",
+    "access-mode": "full",
+    "enable-clipboard": "Y",
+    "enable-file-copy-paste": "Y",
+    "enable-remote-printer": "Y",
+    "enable-record-session": "N",
+    "allow-auto-record-incoming": "N",
+    "allow-auto-record-outgoing": "N",
+    "enable-hwcodec": "Y",
+    "allow-remove-wallpaper": "N",
+    "privacy-mode": "Y",
+    "allow-websocket": "Y",
+    "enable-check-update": "N",
+    "allow-auto-update": "N",
+    "disable-change-permanent-password": "Y",
+    "hide-stop-service": "Y",
+    "hide-tray": "N",
+    "allow-logon-screen-password": "Y",
+    "preset-device-group-name": "Desconhecido"
+  }
+}
