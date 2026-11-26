@@ -1,4 +1,7 @@
 {
+  "conn-type": "incoming",
+  "disable-settings": "Y",
+  "disable-account": "Y",
   "override-settings": {
     "theme": "dark",
     "lang": "pt-br",
