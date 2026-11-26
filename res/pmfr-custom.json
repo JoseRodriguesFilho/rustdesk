@@ -17,7 +17,7 @@
     "enable-hwcodec": "Y",
     "allow-remove-wallpaper": "N",
     "privacy-mode": "Y",
-    "allow-websocket": "Y",
+    "allow-websocket": "N",
     "enable-check-update": "N",
     "allow-auto-update": "N",
     "disable-change-permanent-password": "Y",
